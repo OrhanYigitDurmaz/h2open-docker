@@ -18,13 +18,13 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
         with:
           repository: frappe/frappe_docker
           ref: main
           path: builder
       - uses: docker/setup-qemu-action@v4
       - uses: docker/setup-buildx-action@v4
-      - uses: actions/checkout@v6
       - name: Copy apps.json
         run: |
           mkdir -p builder/.github/tmp
