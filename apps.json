@@ -1,18 +1,5 @@
 [
-  {
-    "url": "https://github.com/frappe/erpnext",
-    "branch": "version-16"
-  },
-  {
-    "url": "https://github.com/OrhanYigitDurmaz/h2open-sms",
-    "branch": "main"
-  },
-  {
-    "url": "https://github.com/OrhanYigitDurmaz/h2open-voip",
-    "branch": "main"
-  },
-  {
-    "url": "https://github.com/OrhanYigitDurmaz/h2open-mobile",
-    "branch": "main"
-  }
+  {"url": "https://github.com/frappe/erpnext", "branch": "version-16"},
+  {"url": "https://github.com/OrhanYigitDurmaz/h2open-sms", "branch": "main"},
+  {"url": "https://github.com/OrhanYigitDurmaz/h2open-mobile", "branch": "main"}
 ]
