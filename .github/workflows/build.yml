@@ -37,6 +37,7 @@ jobs:
           TAG="${TAG#v}"
           echo "tag=${TAG:-latest}" >> $GITHUB_OUTPUT
           echo "sha_tag=${{ env.FRAPPE_REF }}-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          echo "owner=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
       - name: Login to GHCR
         uses: docker/login-action@v4
         with:
@@ -57,7 +58,7 @@ jobs:
           secrets: |
             id=apps_json,src=builder/.github/tmp/apps.json
           tags: |
-            ghcr.io/${{ github.repository_owner }}/h2open:${{ steps.meta.outputs.sha_tag }}
-            ghcr.io/${{ github.repository_owner }}/h2open:${{ steps.meta.outputs.tag }}
+            ghcr.io/${{ steps.meta.outputs.owner }}/h2open:${{ steps.meta.outputs.sha_tag }}
+            ghcr.io/${{ steps.meta.outputs.owner }}/h2open:${{ steps.meta.outputs.tag }}
           cache-from: type=gha,scope=bundle-${{ env.FRAPPE_REF }}
           cache-to: type=gha,mode=max,scope=bundle-${{ env.FRAPPE_REF }}
