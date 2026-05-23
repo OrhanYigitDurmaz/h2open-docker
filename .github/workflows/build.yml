@@ -51,10 +51,11 @@ jobs:
             FRAPPE_IMAGE_PREFIX=frappe
             FRAPPE_PATH=https://github.com/frappe/frappe
             FRAPPE_BRANCH=${{ env.FRAPPE_REF }}
+            CACHE_BUST=${{ github.sha }}
           platforms: linux/amd64
           push: true
-          secrets: |
-            id=apps_json,src=builder/apps.json
+          secret-files: |
+            apps_json=builder/apps.json
           tags: |
             ghcr.io/${{ steps.meta.outputs.owner }}/h2open-docker:${{ steps.meta.outputs.sha_tag }}
             ghcr.io/${{ steps.meta.outputs.owner }}/h2open-docker:${{ steps.meta.outputs.tag }}
